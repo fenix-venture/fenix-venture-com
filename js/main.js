@@ -61,34 +61,19 @@ function setActiveNavLink() {
 
 // Initialize on load
 window.addEventListener('DOMContentLoaded', () => {
-    console.log('main.js loaded - Version: 2026-01-20-v2 - Relative path calculation');
+    console.log('main.js loaded - Version: 2026-01-20-v3 - Using baseurl from meta tag');
     
-    // Determine the base path for the site
-    // Check if we're in a subdirectory by looking at the path structure
-    const pathSegments = window.location.pathname.split('/').filter(p => p);
+    // Get the baseurl from the meta tag (set by Jekyll)
+    const baseurlMeta = document.querySelector('meta[name="baseurl"]');
+    const baseurl = baseurlMeta ? baseurlMeta.getAttribute('content') : '';
     
-    // Calculate how many levels deep we are
-    let depth = 0;
-    if (pathSegments.length > 0) {
-        // Check if the last segment is an HTML file
-        const lastSegment = pathSegments[pathSegments.length - 1];
-        if (lastSegment.endsWith('.html')) {
-            depth = pathSegments.length - 1;
-        } else {
-            depth = pathSegments.length;
-        }
-    }
+    console.log('Baseurl from meta tag:', baseurl);
+    console.log('Loading header from:', baseurl + '/components/header.html');
+    console.log('Loading footer from:', baseurl + '/components/footer.html');
     
-    // Build the relative path back to root
-    const basePath = depth > 0 ? '../'.repeat(depth) : './';
-    
-    console.log('Component path calculation:', { pathSegments, depth, basePath });
-    console.log('Loading header from:', basePath + 'components/header.html');
-    console.log('Loading footer from:', basePath + 'components/footer.html');
-    
-    // Load components with the correct relative path
-    loadComponent('header-placeholder', basePath + 'components/header.html');
-    loadComponent('footer-placeholder', basePath + 'components/footer.html');
+    // Load components with the correct path including baseurl
+    loadComponent('header-placeholder', baseurl + '/components/header.html');
+    loadComponent('footer-placeholder', baseurl + '/components/footer.html');
     
     // Initialize pain points carousel if it exists on the page
     initPainPointsCarousel();
