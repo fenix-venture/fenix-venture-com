@@ -61,9 +61,28 @@ function setActiveNavLink() {
 
 // Initialize on load
 window.addEventListener('DOMContentLoaded', () => {
-    // Use absolute paths for components to work at any depth
-    loadComponent('header-placeholder', '/components/header.html');
-    loadComponent('footer-placeholder', '/components/footer.html');
+    // Determine the base path for the site
+    // Check if we're in a subdirectory by looking at the path structure
+    const pathSegments = window.location.pathname.split('/').filter(p => p);
+    
+    // Calculate how many levels deep we are
+    let depth = 0;
+    if (pathSegments.length > 0) {
+        // Check if the last segment is an HTML file
+        const lastSegment = pathSegments[pathSegments.length - 1];
+        if (lastSegment.endsWith('.html')) {
+            depth = pathSegments.length - 1;
+        } else {
+            depth = pathSegments.length;
+        }
+    }
+    
+    // Build the relative path back to root
+    const basePath = depth > 0 ? '../'.repeat(depth) : './';
+    
+    // Load components with the correct relative path
+    loadComponent('header-placeholder', basePath + 'components/header.html');
+    loadComponent('footer-placeholder', basePath + 'components/footer.html');
     
     // Initialize pain points carousel if it exists on the page
     initPainPointsCarousel();
