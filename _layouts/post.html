@@ -18,6 +18,30 @@
     <meta property="og:description"
         content="{{ page.excerpt | default: page.description | strip_html | truncatewords: 30 }}">
     <meta property="og:image" content="https://fenixventure.com/images/logo.svg">
+    <link rel="canonical" href="https://fenixventure.com{{ page.url }}">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{ page.title }}",
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ page.author | default: 'Fenix Venture' }}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Fenix Venture",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://fenixventure.com/images/fv-logo.png"
+        }
+      },
+      "description": "{{ page.excerpt | default: page.description | strip_html | truncatewords: 30 }}"
+    }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
