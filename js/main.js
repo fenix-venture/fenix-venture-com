@@ -61,6 +61,8 @@ function setActiveNavLink() {
 
 // Initialize on load
 window.addEventListener('DOMContentLoaded', () => {
+    console.log('main.js loaded - Version: 2026-01-20-v2 - Relative path calculation');
+    
     // Determine the base path for the site
     // Check if we're in a subdirectory by looking at the path structure
     const pathSegments = window.location.pathname.split('/').filter(p => p);
@@ -79,6 +81,10 @@ window.addEventListener('DOMContentLoaded', () => {
     
     // Build the relative path back to root
     const basePath = depth > 0 ? '../'.repeat(depth) : './';
+    
+    console.log('Component path calculation:', { pathSegments, depth, basePath });
+    console.log('Loading header from:', basePath + 'components/header.html');
+    console.log('Loading footer from:', basePath + 'components/footer.html');
     
     // Load components with the correct relative path
     loadComponent('header-placeholder', basePath + 'components/header.html');
