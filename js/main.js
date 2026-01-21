@@ -61,19 +61,9 @@ function setActiveNavLink() {
 
 // Initialize on load
 window.addEventListener('DOMContentLoaded', () => {
-    console.log('main.js loaded - Version: 2026-01-20-v3 - Using baseurl from meta tag');
-    
-    // Get the baseurl from the meta tag (set by Jekyll)
-    const baseurlMeta = document.querySelector('meta[name="baseurl"]');
-    const baseurl = baseurlMeta ? baseurlMeta.getAttribute('content') : '';
-    
-    console.log('Baseurl from meta tag:', baseurl);
-    console.log('Loading header from:', baseurl + '/components/header.html');
-    console.log('Loading footer from:', baseurl + '/components/footer.html');
-    
-    // Load components with the correct path including baseurl
-    loadComponent('header-placeholder', baseurl + '/components/header.html');
-    loadComponent('footer-placeholder', baseurl + '/components/footer.html');
+    // Load header and footer components
+    loadComponent('header-placeholder', '/components/header.html');
+    loadComponent('footer-placeholder', '/components/footer.html');
     
     // Initialize pain points carousel if it exists on the page
     initPainPointsCarousel();
