@@ -30,9 +30,14 @@ function setActiveNavLink() {
     // Get current page path
     let currentPath = window.location.pathname;
     
-    // Normalize path (remove trailing slash if present)
+    // Normalize path (remove trailing slash if present, except for root)
     if (currentPath.endsWith('/') && currentPath.length > 1) {
         currentPath = currentPath.slice(0, -1);
+    }
+    
+    // Convert root path to /index.html for matching
+    if (currentPath === '/') {
+        currentPath = '/index.html';
     }
 
     // Target the links inside your nav
