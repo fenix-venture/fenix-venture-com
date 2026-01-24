@@ -6,7 +6,8 @@
     <meta name="robots" content="index, follow">
     <!-- Default Meta -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.ico">
     <title>Schedule Your Diagnostic | Identify High-Impact Opportunities | Fenix Venture</title>
     <meta name="title" content="Schedule Your Diagnostic | Identify High-Impact Opportunities | Fenix Venture">
     <meta name="description"
@@ -78,11 +79,6 @@
                                     id="contact-name" name="name" placeholder="Your Name*" required>
                             </div>
                             <div class="mb-3">
-                                <label class="visually-hidden" for="contact-for">Contact For</label>
-                                <input type="text" class="form-control border-0 border-bottom rounded-0"
-                                    id="contact-for" name="contact_for" placeholder="Contact For*" required>
-                            </div>
-                            <div class="mb-3">
                                 <label class="visually-hidden" for="contact-email">Email</label>
                                 <input type="email" class="form-control border-0 border-bottom rounded-0"
                                     id="contact-email" name="email" placeholder="Email*" required>
@@ -90,7 +86,7 @@
                             <div class="mb-3">
                                 <label class="visually-hidden" for="contact-company">Company</label>
                                 <input type="text" class="form-control border-0 border-bottom rounded-0"
-                                    id="contact-company" name="company" placeholder="Company*" required>
+                                    id="contact-company" name="company" placeholder="Company">
                             </div>
                             <div class="mb-3">
                                 <label class="visually-hidden" for="contact-message">Message</label>
@@ -134,7 +130,7 @@
         const result = document.getElementById('form-result');
         const submitBtn = document.getElementById('submit-btn');
 
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
 
             submitBtn.disabled = true;
@@ -152,25 +148,25 @@
                 },
                 body: json
             })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) {
-                    result.innerHTML = '<div class="alert alert-success">Thank you! Your message has been sent successfully. We\'ll get back to you soon.</div>';
-                    form.reset();
-                } else {
-                    result.innerHTML = '<div class="alert alert-danger">' + json.message + '</div>';
-                }
-            })
-            .catch(error => {
-                result.innerHTML = '<div class="alert alert-danger">Something went wrong. Please try again.</div>';
-            })
-            .then(function() {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit';
-                setTimeout(() => {
-                    result.innerHTML = '';
-                }, 5000);
-            });
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        result.innerHTML = '<div class="alert alert-success">Thank you! Your message has been sent successfully. We\'ll get back to you soon.</div>';
+                        form.reset();
+                    } else {
+                        result.innerHTML = '<div class="alert alert-danger">' + json.message + '</div>';
+                    }
+                })
+                .catch(error => {
+                    result.innerHTML = '<div class="alert alert-danger">Something went wrong. Please try again.</div>';
+                })
+                .then(function () {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit';
+                    setTimeout(() => {
+                        result.innerHTML = '';
+                    }, 5000);
+                });
         });
     </script>
 </body>
