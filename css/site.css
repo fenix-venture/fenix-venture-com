@@ -1,24 +1,26 @@
 /* ===================================
-   SITE.CSS — Refined modern refresh
-   July 2026 v2
+   SITE.CSS — Fenix Venture Brand System
+   July 2026 v3 — Amber direction
    ===================================
-   Direction: Clean, premium, spacious.
+   Direction: Warm, grounded, human.
+   Accent: Amber (#c27803) - NOT cold blue.
    Font: Plus Jakarta Sans (headings) + Inter (body)
-   Tone: Confident without being loud.
+   Tone: Operator-to-operator. Direct. No jargon.
    =================================== */
 
 /* --- FONTS --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 /* --- VARIABLES --- */
 :root {
-    --text-dark: #0c1017;
-    --text-dark-secondary: #1a2235;
-    --text-muted: #64748b;
+    --text-dark: #0e0f11;
+    --text-dark-secondary: #1a1b1f;
+    --text-muted: #5c6370;
     --white: #ffffff;
-    --primary-accent: #1547c0;
-    --primary-light: #4f7ef7;
-    --bg-subtle: #f7f8fc;
+    --primary-accent: #c27803;
+    --primary-dark: #8a5200;
+    --primary-light: #f0a51e;
+    --bg-subtle: #faf8f4;
     --border-subtle: rgba(0, 0, 0, 0.07);
     --font-heading: "Plus Jakarta Sans", sans-serif;
     --font-body: "Inter", sans-serif;
@@ -203,7 +205,7 @@ section.py-5 {
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(21, 71, 192, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(194, 120, 3, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
 }
 
 @media (max-width: 991px) {
@@ -261,15 +263,15 @@ section.py-5 {
     text-transform: none !important;
     border: 2px solid var(--primary-accent) !important;
     transition: all 0.2s ease !important;
-    box-shadow: 0 2px 8px rgba(21, 71, 192, 0.25) !important;
+    box-shadow: 0 2px 8px rgba(194, 120, 3, 0.3) !important;
 }
 
 .btn-cta-primary:hover,
 .btn-cta-primary:focus {
-    background-color: #0f3599 !important;
-    border-color: #0f3599 !important;
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
     color: var(--white) !important;
-    box-shadow: 0 4px 16px rgba(21, 71, 192, 0.35) !important;
+    box-shadow: 0 4px 16px rgba(194, 120, 3, 0.4) !important;
     transform: translateY(-1px) !important;
 }
 
@@ -439,5 +441,19 @@ footer {
 }
 
 #testimonialCarousel .carousel-indicators button.active {
+    background-color: var(--primary-accent) !important;
+}
+
+/* --- NAV ACTIVE AMBER --- */
+.nav-links a:hover {
+    color: var(--primary-accent) !important;
+}
+
+.nav-link.active {
+    color: var(--primary-accent) !important;
+}
+
+.nav-link.btn.active,
+.nav-link.btn:hover {
     background-color: var(--primary-accent) !important;
 }

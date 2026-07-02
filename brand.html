@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Foundation — Fenix Venture</title>
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --amber:        #c27803;
+            --amber-dark:   #8a5200;
+            --amber-light:  #f0a51e;
+            --amber-pale:   #fdf3dc;
+            --dark:         #0e0f11;
+            --dark-2:       #1a1b1f;
+            --charcoal:     #2c2d32;
+            --text:         #16181c;
+            --muted:        #5c6370;
+            --cream:        #faf8f4;
+            --white:        #ffffff;
+            --border:       rgba(0,0,0,0.08);
+            --font-h:       "Plus Jakarta Sans", sans-serif;
+            --font-b:       "Inter", sans-serif;
+        }
+
+        body { font-family: var(--font-b); font-size: 16px; color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; background: var(--cream); }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+        /* BRAND HEADER */
+        .brand-header {
+            background: var(--dark);
+            padding: 5rem 0 4rem;
+            text-align: center;
+        }
+        .brand-header .eyebrow {
+            font-family: var(--font-h);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--amber-light);
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .brand-header h1 {
+            font-family: var(--font-h);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
+        .brand-header p {
+            color: rgba(255,255,255,0.5);
+            font-size: 1rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* SECTIONS */
+        .brand-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .brand-section.dark {
+            background: var(--dark);
+            border-bottom-color: rgba(255,255,255,0.07);
+        }
+        .brand-section.white {
+            background: var(--white);
+        }
+        .brand-section.amber-pale {
+            background: var(--amber-pale);
+        }
+
+        .section-label {
+            font-family: var(--font-h);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        .brand-section.dark .section-label {
+            color: var(--amber-light);
+        }
+
+        h2.brand-h2 {
+            font-family: var(--font-h);
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        .brand-section.dark h2.brand-h2 {
+            color: var(--white);
+        }
+
+        .brand-body {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.75;
+            max-width: 680px;
+        }
+        .brand-section.dark .brand-body {
+            color: rgba(255,255,255,0.55);
+        }
+
+        /* POSITIONING STATEMENT */
+        .positioning-box {
+            background: var(--dark);
+            border-radius: 12px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--amber);
+        }
+        .positioning-box blockquote {
+            font-family: var(--font-h);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin: 0 0 1rem;
+        }
+        .positioning-box blockquote em {
+            color: var(--amber-light);
+            font-style: normal;
+        }
+        .positioning-box p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* COLOR PALETTE */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .color-swatch {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+        }
+        .swatch-block {
+            height: 80px;
+        }
+        .swatch-info {
+            background: var(--white);
+            padding: 0.75rem;
+        }
+        .swatch-name {
+            font-family: var(--font-h);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text);
+            display: block;
+        }
+        .swatch-hex {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+        .swatch-role {
+            font-size: 0.7rem;
+            color: var(--muted);
+            margin-top: 0.2rem;
+            display: block;
+        }
+
+        /* TYPOGRAPHY */
+        .type-specimen {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+        }
+        .type-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* VOICE GRID */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .voice-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+        .voice-card.do { border-top: 3px solid var(--amber); }
+        .voice-card.dont { border-top: 3px solid #ef4444; }
+        .voice-card h4 {
+            font-family: var(--font-h);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .voice-card.do h4 { color: var(--amber-dark); }
+        .voice-card.dont h4 { color: #ef4444; }
+        .voice-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .voice-card ul li {
+            font-size: 0.9rem;
+            color: var(--muted);
+            padding: 0.3rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .voice-card ul li:last-child { border-bottom: none; }
+        .voice-card ul li::before {
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+        .voice-card.do ul li::before { content: "✓"; color: var(--amber); }
+        .voice-card.dont ul li::before { content: "✗"; color: #ef4444; }
+
+        /* KEY MESSAGES */
+        .message-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+        .message-list li {
+            display: flex;
+            gap: 1.25rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .message-list li:first-child { border-top: 1px solid var(--border); }
+        .msg-num {
+            font-family: var(--font-h);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--amber);
+            min-width: 2rem;
+            padding-top: 0.2rem;
+        }
+        .msg-content strong {
+            display: block;
+            font-family: var(--font-h);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 0.35rem;
+        }
+        .msg-content span {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        /* AUDIENCE */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .audience-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+        .audience-card h4 {
+            font-family: var(--font-h);
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .audience-card p {
+            font-size: 0.875rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .voice-grid, .audience-grid { grid-template-columns: 1fr; }
+            .positioning-box blockquote { font-size: 1.5rem; }
+            .brand-header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="brand-header">
+    <div class="container">
+        <span class="eyebrow">Brand Foundation — Fenix Venture</span>
+        <h1>We buy businesses the way<br>people buy homes.</h1>
+        <p>This document defines who we are, how we sound, what we stand for, and how every piece of creative should feel.</p>
+    </div>
+</div>
+
+<!-- POSITIONING -->
+<div class="brand-section white">
+    <div class="container">
+        <span class="section-label">01 — Positioning</span>
+        <h2 class="brand-h2">The one-sentence version</h2>
+        <p class="brand-body">Everything Fenix does flows from one core belief: the best way to acquire a business is to truly understand it first - not from a spreadsheet, but from inside.</p>
+
+        <div class="positioning-box">
+            <blockquote>"We buy businesses the way people buy homes. We walk through them, imagine ourselves <em>living</em> in them, and plan what we'd change — before we ever make an offer."</blockquote>
+            <p>Core positioning statement. Use this as the filter for all creative decisions.</p>
+        </div>
+
+        <p class="brand-body">The consulting work is how we get there. We embed in a business as an advisor, which gives us access to its people, processes, and real problems — the things no data room ever shows. Even if we don't acquire, every client leaves in better shape than when we arrived. That's the value exchange, and it's what sets Fenix apart from every other buyer in the market.</p>
+    </div>
+</div>
+
+<!-- AUDIENCE -->
+<div class="brand-section">
+    <div class="container">
+        <span class="section-label">02 — Audience</span>
+        <h2 class="brand-h2">Who we're talking to</h2>
+        <p class="brand-body">Our primary audience is operators and business owners who are considering, or open to, being acquired. They are skeptical of financial buyers who see them as a line item. They want a partner who actually understands what they've built.</p>
+
+        <div class="audience-grid">
+            <div class="audience-card">
+                <h4>The Founder-Operator</h4>
+                <p>Built their business over 10-20 years. Owns it. Wants to know the buyer actually cares about what they've built, not just the EBITDA.</p>
+            </div>
+            <div class="audience-card">
+                <h4>The Legacy Thinker</h4>
+                <p>Thinking about the next chapter for themselves and their team. Wants continuity, not a strip-and-flip. A cultural fit matters as much as price.</p>
+            </div>
+            <div class="audience-card">
+                <h4>The Growth-Stuck Operator</h4>
+                <p>Good business, real potential, but stuck. Open to a partner who can bring capital, systems, and execution - not just a check.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VOICE & TONE -->
+<div class="brand-section white">
+    <div class="container">
+        <span class="section-label">03 — Voice & Tone</span>
+        <h2 class="brand-h2">How we sound</h2>
+        <p class="brand-body">Fenix sounds like a trusted advisor who has done this before and is not trying to impress you with jargon. We are direct, human, and confident. We speak plainly because plain is powerful.</p>
+
+        <div class="voice-grid">
+            <div class="voice-card do">
+                <h4>We sound like this</h4>
+                <ul>
+                    <li>Direct and plainspoken</li>
+                    <li>Confident without being arrogant</li>
+                    <li>Human and relational - like a conversation</li>
+                    <li>Specific - no vague promises</li>
+                    <li>Operator-to-operator</li>
+                </ul>
+            </div>
+            <div class="voice-card dont">
+                <h4>Not like this</h4>
+                <ul>
+                    <li>PE-firm formal ("leverage our synergies")</li>
+                    <li>Vague and hedged ("solutions for growth")</li>
+                    <li>Salesy or pushy</li>
+                    <li>Acronym-heavy or jargon-dense</li>
+                    <li>Cold or clinical</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- COLORS -->
+<div class="brand-section">
+    <div class="container">
+        <span class="section-label">04 — Color</span>
+        <h2 class="brand-h2">Palette</h2>
+        <p class="brand-body">Amber signals something different from the cold blue of traditional financial buyers. It's warm, grounded, and human — the same qualities that define how we work.</p>
+
+        <div class="color-grid">
+            <div class="color-swatch">
+                <div class="swatch-block" style="background: #c27803;"></div>
+                <div class="swatch-info">
+                    <span class="swatch-name">Amber</span>
+                    <span class="swatch-hex">#c27803</span>
+                    <span class="swatch-role">Primary accent — CTAs, highlights, eyebrows</span>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="swatch-block" style="background: #f0a51e;"></div>
+                <div class="swatch-info">
+                    <span class="swatch-name">Amber Light</span>
+                    <span class="swatch-hex">#f0a51e</span>
+                    <span class="swatch-role">Gradient text, glow effects on dark</span>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="swatch-block" style="background: #0e0f11;"></div>
+                <div class="swatch-info">
+                    <span class="swatch-name">Near Black</span>
+                    <span class="swatch-hex">#0e0f11</span>
+                    <span class="swatch-role">Hero, dark sections, footer</span>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="swatch-block" style="background: #1a1b1f;"></div>
+                <div class="swatch-info">
+                    <span class="swatch-name">Charcoal</span>
+                    <span class="swatch-hex">#1a1b1f</span>
+                    <span class="swatch-role">Secondary dark surfaces</span>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="swatch-block" style="background: #faf8f4;"></div>
+                <div class="swatch-info">
+                    <span class="swatch-name">Warm Cream</span>
+                    <span class="swatch-hex">#faf8f4</span>
+                    <span class="swatch-role">Light section backgrounds — warm, not cold</span>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="swatch-block" style="background: #ffffff; border: 1px solid #e5e7eb;"></div>
+                <div class="swatch-info">
+                    <span class="swatch-name">White</span>
+                    <span class="swatch-hex">#ffffff</span>
+                    <span class="swatch-role">Cards, content sections</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="brand-section white">
+    <div class="container">
+        <span class="section-label">05 — Typography</span>
+        <h2 class="brand-h2">Type system</h2>
+        <p class="brand-body" style="margin-bottom: 1.5rem;">Two fonts. No exceptions. Headlines feel confident and tight; body copy is legible and human.</p>
+
+        <div class="type-specimen">
+            <div class="type-label">Plus Jakarta Sans — Headings, Labels, Nav</div>
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.5rem;">We buy businesses the way people buy homes.</div>
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #c27803;">Section Eyebrow Label</div>
+        </div>
+
+        <div class="type-specimen">
+            <div class="type-label">Inter — Body Copy, Captions</div>
+            <div style="font-family: 'Inter', sans-serif; font-size: 1.05rem; line-height: 1.75; color: #5c6370; margin-bottom: 0.75rem;">Most acquirers run the numbers. We walk the hallways, meet the team, and plan what comes next - before we ever make an offer. The consulting work is how we get inside.</div>
+            <div style="font-family: 'Inter', sans-serif; font-size: 0.875rem; line-height: 1.7; color: #5c6370;">Smaller body text at 0.875rem for secondary copy, captions, and metadata.</div>
+        </div>
+    </div>
+</div>
+
+<!-- KEY MESSAGES -->
+<div class="brand-section">
+    <div class="container">
+        <span class="section-label">06 — Key Messages</span>
+        <h2 class="brand-h2">What we always say</h2>
+        <p class="brand-body">These four messages should be present in some form on every major page. They are the proof points behind our positioning.</p>
+
+        <ul class="message-list">
+            <li>
+                <span class="msg-num">01</span>
+                <div class="msg-content">
+                    <strong>We buy businesses like people buy homes.</strong>
+                    <span>Not off a balance sheet. We walk through them, meet the team, and plan what we'd change before we ever make an offer. This is the core differentiator.</span>
+                </div>
+            </li>
+            <li>
+                <span class="msg-num">02</span>
+                <div class="msg-content">
+                    <strong>The consulting work is the test drive.</strong>
+                    <span>Our advisory engagement is how we earn the right to buy. We embed in your business, find the real issues, and prove we can help - before asking for anything.</span>
+                </div>
+            </li>
+            <li>
+                <span class="msg-num">03</span>
+                <div class="msg-content">
+                    <strong>You win either way.</strong>
+                    <span>Whether we acquire or not, every business we work with leaves in better shape than when we arrived. That's not a pitch - it's what we're accountable to.</span>
+                </div>
+            </li>
+            <li>
+                <span class="msg-num">04</span>
+                <div class="msg-content">
+                    <strong>We bring the whole toolkit.</strong>
+                    <span>Strategy, execution, fractional leadership, AI and automation (via GetLatest.ai) - we're not just financial buyers. We're operators who can actually fix things.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- FOOTER NOTE -->
+<div class="brand-section white" style="border-bottom: none;">
+    <div class="container">
+        <span class="section-label">Internal Document</span>
+        <p class="brand-body" style="color: #5c6370;">This brand page is the foundation for all design and copy decisions at Fenix Venture. When a design feels off, check it against the positioning statement and the key messages. If it doesn't serve the idea that "we buy businesses like people buy homes," it doesn't belong here.</p>
+    </div>
+</div>
+
+</body>
+</html>
