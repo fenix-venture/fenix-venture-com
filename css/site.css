@@ -1,9 +1,9 @@
 /* ===================================
    SITE.CSS — Fenix Venture Brand System
-   July 2026 v3 — Amber direction
+   July 2026 v4 — Phoenix Crimson
    ===================================
-   Direction: Warm, grounded, human.
-   Accent: Amber (#c27803) - NOT cold blue.
+   Direction: Bold, grounded, human.
+   Accent: Phoenix crimson #DE3A3A (from logo SVG)
    Font: Plus Jakarta Sans (headings) + Inter (body)
    Tone: Operator-to-operator. Direct. No jargon.
    =================================== */
@@ -17,10 +17,10 @@
     --text-dark-secondary: #1a1b1f;
     --text-muted: #5c6370;
     --white: #ffffff;
-    --primary-accent: #c27803;
-    --primary-dark: #8a5200;
-    --primary-light: #f0a51e;
-    --bg-subtle: #faf8f4;
+    --primary-accent: #DE3A3A;
+    --primary-dark: #b02828;
+    --primary-light: #f07070;
+    --bg-subtle: #faf9f9;
     --border-subtle: rgba(0, 0, 0, 0.07);
     --font-heading: "Plus Jakarta Sans", sans-serif;
     --font-body: "Inter", sans-serif;
@@ -205,7 +205,7 @@ section.py-5 {
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(194, 120, 3, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(222, 58, 58, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
 }
 
 @media (max-width: 991px) {
@@ -263,7 +263,7 @@ section.py-5 {
     text-transform: none !important;
     border: 2px solid var(--primary-accent) !important;
     transition: all 0.2s ease !important;
-    box-shadow: 0 2px 8px rgba(194, 120, 3, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(222, 58, 58, 0.3) !important;
 }
 
 .btn-cta-primary:hover,
@@ -271,7 +271,7 @@ section.py-5 {
     background-color: var(--primary-dark) !important;
     border-color: var(--primary-dark) !important;
     color: var(--white) !important;
-    box-shadow: 0 4px 16px rgba(194, 120, 3, 0.4) !important;
+    box-shadow: 0 4px 16px rgba(222, 58, 58, 0.4) !important;
     transform: translateY(-1px) !important;
 }
 

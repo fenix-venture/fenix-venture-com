@@ -29,6 +29,80 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/about.css">
+
+    <style>
+        /* ─────────────────────────────────────────
+           PAGE HERO
+        ───────────────────────────────────────── */
+        .page-hero {
+            background: #0e0f11;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -150px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(222,58,58,0.14) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .page-hero-inner {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #f07070;
+            margin-bottom: 1.75rem;
+        }
+        .page-hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 22px;
+            height: 1px;
+            background: currentColor;
+        }
+        .page-hero h1 {
+            font-family: "Plus Jakarta Sans", sans-serif !important;
+            font-size: 3.5rem !important;
+            font-weight: 800 !important;
+            letter-spacing: -0.03em !important;
+            line-height: 1.08 !important;
+            color: #ffffff !important;
+            margin-bottom: 1.25rem;
+            max-width: 740px;
+        }
+        .page-hero-sub {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.55);
+            max-width: 560px;
+            margin-bottom: 0;
+        }
+        @media (max-width: 768px) {
+            .page-hero { padding: 4rem 0; }
+            .page-hero h1 { font-size: 2.5rem !important; }
+        }
+    </style>
 </head>
 
 <body>
@@ -38,25 +112,12 @@
 
     <main>
         <!-- HERO SECTION -->
-        <section class="py-5 text-center bg-light">
+        <section class="page-hero">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <h1 class="hero-title">
-                            Building Stronger Companies Through Clearer Decisions and <span
-                                class="hero-highlight">Better Execution.</span>
-                        </h1>
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <p class="lead mb-0">
-                                    Fenix Venture partners with founders and CEOs to improve performance where it
-                                    matters most.
-                                    We bring strategic clarity, hands-on execution, and operating experience to help
-                                    businesses scale without losing control.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="page-hero-inner">
+                    <span class="page-hero-eyebrow">ABOUT FENIX VENTURE</span>
+                    <h1>We're operators who buy businesses.</h1>
+                    <p class="page-hero-sub">Fenix Venture partners with founders and CEOs who want a buyer that understands their business - not just their balance sheet.</p>
                 </div>
             </div>
         </section>
