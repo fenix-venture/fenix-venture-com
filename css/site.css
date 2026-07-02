@@ -1,43 +1,43 @@
 /* ===================================
-   SITE.CSS - SHARED STYLES & UTILITIES
+   SITE.CSS — Refined modern refresh
+   July 2026 v2
    ===================================
-   Bold/Confident refresh — July 2026
-   - Heavier type (Poppins 700/800 headings, Inter body)
-   - Sharp-edged buttons with uppercase tracking
-   - Phase cards: blue top-border accent
-   - Footer: darker + blue top accent
-   - Stats: max-weight display numbers
+   Direction: Clean, premium, spacious.
+   Font: Plus Jakarta Sans (headings) + Inter (body)
+   Tone: Confident without being loud.
    =================================== */
 
 /* --- FONTS --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
 
 /* --- VARIABLES --- */
 :root {
-    --text-dark: #0d0f12;
-    --text-dark-secondary: #111827;
-    --text-muted: #6b7280;
+    --text-dark: #0c1017;
+    --text-dark-secondary: #1a2235;
+    --text-muted: #64748b;
     --white: #ffffff;
-    --primary-accent: #0057e7;
-    --bg-subtle: #f4f6fb;
-    --font-heading: "Poppins", sans-serif;
+    --primary-accent: #1547c0;
+    --primary-light: #4f7ef7;
+    --bg-subtle: #f7f8fc;
+    --border-subtle: rgba(0, 0, 0, 0.07);
+    --font-heading: "Plus Jakarta Sans", sans-serif;
     --font-body: "Inter", sans-serif;
     --container-width: 1400px;
     --transition: all 0.2s ease;
+    --card-radius: 10px;
+    --card-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
 }
 
 /* --- RESET --- */
 *, *::before, *::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
     font-family: var(--font-body) !important;
-    font-size: 17px !important;
+    font-size: 16px !important;
     color: var(--text-dark) !important;
-    line-height: 1.65 !important;
+    line-height: 1.7 !important;
     overflow-x: hidden !important;
     -webkit-font-smoothing: antialiased !important;
 }
@@ -46,61 +46,102 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading) !important;
     font-weight: 700 !important;
-    line-height: 1.08 !important;
-    letter-spacing: -0.025em !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    color: var(--text-dark) !important;
 }
 
 h1 {
-    font-size: 4.25rem !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.035em !important;
+    font-size: 3.25rem !important;
+    letter-spacing: -0.03em !important;
 }
 
 h2 {
-    font-size: 2.75rem !important;
+    font-size: 2.25rem !important;
 }
 
 h3 {
-    font-size: 2.1rem !important;
+    font-size: 1.75rem !important;
 }
 
 h4 {
-    font-size: 1.25rem !important;
-    letter-spacing: -0.015em !important;
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
 }
 
 h5 {
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
 }
 
-/* Stat numbers — max impact */
 .display-4 {
     font-family: var(--font-heading) !important;
-    font-size: 4.5rem !important;
-    font-weight: 800 !important;
+    font-size: 3.75rem !important;
+    font-weight: 700 !important;
     letter-spacing: -0.04em !important;
 }
 
 .lead {
-    font-size: 1.15rem !important;
+    font-size: 1.1rem !important;
     font-weight: 400 !important;
-    line-height: 1.7 !important;
+    line-height: 1.75 !important;
     color: var(--text-muted) !important;
 }
 
-/* Bootstrap text-primary override */
 .text-primary {
     color: var(--primary-accent) !important;
-}
-
-/* bg-light override */
-.bg-light {
-    background-color: var(--bg-subtle) !important;
 }
 
 /* --- LAYOUT --- */
 .container {
     max-width: var(--container-width) !important;
+}
+
+/* --- SECTIONS: more breathing room --- */
+section.py-4 {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+section.py-5 {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+}
+
+.bg-light {
+    background-color: var(--bg-subtle) !important;
+}
+
+/* --- HERO --- */
+.hero {
+    background: var(--text-dark) !important;
+    padding-top: 5rem !important;
+    padding-bottom: 0 !important;
+}
+
+.hero h1,
+.hero .hero-title {
+    color: var(--white) !important;
+}
+
+.hero .lead {
+    color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.hero-highlight {
+    color: var(--primary-light);
+    font-style: italic;
+}
+
+/* Hero image: flush bottom, no gap */
+.hero .row.align-center {
+    margin-top: 3rem;
+}
+
+.hero img {
+    display: block;
+    opacity: 0.85;
 }
 
 /* --- HEADER --- */
@@ -111,15 +152,15 @@ h5 {
 }
 
 #site-header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 1px 16px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.04);
 }
 
 /* --- NAV --- */
 .nav-links {
     align-items: center;
     display: flex;
-    gap: 0.1rem;
+    gap: 0;
     padding-bottom: 0;
     margin-left: auto;
     justify-content: flex-end;
@@ -128,16 +169,18 @@ h5 {
 .nav-links .btn {
     align-self: auto;
     margin-bottom: 0;
+    margin-left: 1rem;
 }
 
 .nav-links a {
-    color: var(--text-dark) !important;
+    color: var(--text-dark-secondary) !important;
     font-family: var(--font-heading) !important;
-    font-size: 0.8rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.03em !important;
-    text-transform: uppercase !important;
-    padding: 0.5rem 0.8rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+    padding: 0.5rem 0.9rem !important;
+    text-transform: none !important;
+    transition: color var(--transition) !important;
 }
 
 .nav-links a:hover {
@@ -145,9 +188,8 @@ h5 {
 }
 
 .nav-link.active {
-    position: relative;
     color: var(--primary-accent) !important;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
 }
 
 .nav-link.btn.active,
@@ -161,16 +203,16 @@ h5 {
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 87, 231, 1)' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(21, 71, 192, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
 }
 
 @media (max-width: 991px) {
     .navbar-collapse {
         background: var(--white);
-        padding: 1rem;
-        border-radius: 4px;
-        margin-top: 1rem;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        padding: 1.25rem;
+        border-radius: 8px;
+        margin-top: 0.75rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     }
 
     .navbar-nav {
@@ -210,49 +252,60 @@ h5 {
 .btn-cta-primary {
     background-color: var(--primary-accent) !important;
     color: var(--white) !important;
-    border-radius: 0 !important;
-    padding: 0.875rem 2rem !important;
+    border-radius: 6px !important;
+    padding: 0.8rem 1.75rem !important;
     font-family: var(--font-heading) !important;
-    font-size: 0.75rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em !important;
+    text-transform: none !important;
     border: 2px solid var(--primary-accent) !important;
-    transition: var(--transition) !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(21, 71, 192, 0.25) !important;
 }
 
 .btn-cta-primary:hover,
 .btn-cta-primary:focus {
-    background-color: transparent !important;
-    color: var(--primary-accent) !important;
+    background-color: #0f3599 !important;
+    border-color: #0f3599 !important;
+    color: var(--white) !important;
+    box-shadow: 0 4px 16px rgba(21, 71, 192, 0.35) !important;
+    transform: translateY(-1px) !important;
 }
 
 .btn-outline-primary {
     background-color: transparent !important;
     color: var(--primary-accent) !important;
-    border-radius: 0 !important;
-    padding: 0.875rem 2rem !important;
+    border-radius: 6px !important;
+    padding: 0.8rem 1.75rem !important;
     font-family: var(--font-heading) !important;
-    font-size: 0.75rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em !important;
+    text-transform: none !important;
     border: 2px solid var(--primary-accent) !important;
-    transition: var(--transition) !important;
+    transition: all 0.2s ease !important;
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
     background-color: var(--primary-accent) !important;
     color: var(--white) !important;
+    transform: translateY(-1px) !important;
 }
 
-/* Remove brightness dim - use outline swap instead */
+/* Hero button: white outline variant on dark bg */
+.hero .btn-cta-primary:hover,
+.hero .btn-cta-primary:focus {
+    background-color: transparent !important;
+    border-color: var(--white) !important;
+    color: var(--white) !important;
+}
+
 .btn:hover,
 .btn:focus,
 .btn:active {
     filter: none !important;
-    transform: none !important;
 }
 
 @media (max-width: 768px) {
@@ -264,42 +317,46 @@ h5 {
     }
 }
 
-/* --- HERO --- */
-.hero-highlight {
-    color: var(--primary-accent);
-    font-style: italic;
-}
-
 /* --- PHASE CARDS --- */
 .phase-card {
     position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: 1.5rem;
-    border-top: 3px solid var(--primary-accent);
+    background: var(--white);
+    border-radius: var(--card-radius);
+    padding: 2rem 1.5rem;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-/* Remove old divider lines - replaced by top-border accent */
+.phase-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Remove old divider lines */
 .col-lg-3:not(:last-child) .phase-card::after {
     display: none !important;
 }
 
 .phase-icon img {
-    height: 56px;
+    height: 52px;
 }
 
 .phase-title {
     color: var(--text-dark);
-    font-size: 1.3rem !important;
+    font-size: 1.15rem !important;
     font-weight: 700 !important;
-    letter-spacing: -0.02em !important;
+    letter-spacing: -0.01em !important;
     margin-bottom: 0.5rem;
+    font-family: var(--font-heading) !important;
 }
 
 .phase-description {
     color: var(--text-muted);
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
     font-weight: 400 !important;
     line-height: 1.65 !important;
 }
@@ -318,9 +375,9 @@ h5 {
 /* --- FOOTER --- */
 footer {
     background: #0a0e17;
-    border-top: 3px solid var(--primary-accent);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
     color: var(--white);
-    padding: 4rem 0 2rem;
+    padding: 5rem 0 2.5rem;
 }
 
 .footer .row.g-4 {
@@ -337,12 +394,13 @@ footer {
 
 .footer h4,
 .footer h5 {
-    color: var(--white) !important;
+    color: rgba(255, 255, 255, 0.4) !important;
     font-size: 0.7rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.14em !important;
-    margin-bottom: 1.25rem;
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    margin-bottom: 1.25rem !important;
     text-transform: uppercase !important;
+    font-family: var(--font-heading) !important;
 }
 
 .footer-links {
@@ -350,14 +408,14 @@ footer {
 }
 
 .footer-links li {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
 }
 
 .footer-links a {
-    color: rgba(255, 255, 255, 0.55) !important;
+    color: rgba(255, 255, 255, 0.6) !important;
     font-size: 0.875rem;
     text-decoration: none;
-    transition: var(--transition);
+    transition: color 0.15s ease;
     font-weight: 400;
 }
 
@@ -369,9 +427,9 @@ footer {
     text-align: center;
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.3);
 }
 
 /* --- CAROUSEL --- */
