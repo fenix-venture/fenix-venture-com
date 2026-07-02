@@ -10,8 +10,7 @@ _site
 .jekyll-metadata
 vendor
 
-# Jekyll Configuration & Dependencies
-Gemfile
+# Jekyll Dependencies (lock file only)
 Gemfile.lock
 
 # Jekyll Default Files (using custom HTML instead)
