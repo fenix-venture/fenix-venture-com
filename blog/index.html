@@ -31,208 +31,198 @@
     <link rel="stylesheet" href="/css/site.css">    
 
     <style>
-        /* Blog Card Styles */
-        .blog-card {
-            border-radius: 2px;
-            overflow: visible;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            height: 100%;
-            background-color: var(--white);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        /* ─── Blog Hero ─── */
+        .blog-hero {
+            background: #0e0f11;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+        .blog-hero::after {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -150px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(222,58,58,0.14) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .blog-hero-inner {
+            position: relative;
+            z-index: 2;
+        }
+        .blog-hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #f07070;
+            margin-bottom: 1.75rem;
+        }
+        .blog-hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 22px;
+            height: 1px;
+            background: currentColor;
+        }
+        .blog-hero h1 {
+            font-family: "Plus Jakarta Sans", sans-serif !important;
+            font-size: 3rem !important;
+            font-weight: 800 !important;
+            letter-spacing: -0.03em !important;
+            line-height: 1.1 !important;
+            color: #ffffff !important;
+            margin-bottom: 1rem;
+        }
+        .blog-hero p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.55);
+            max-width: 540px;
+            line-height: 1.7;
+            margin: 0;
         }
 
+        /* ─── Blog Cards ─── */
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: #ffffff;
+            border: 1.5px solid #e8e5e0;
+            border-top: 3px solid #DE3A3A;
+            border-radius: 4px;
+            padding: 1.75rem;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-top-color 0.2s ease;
+        }
         .blog-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+            border-top-color: #b02828;
+            color: inherit;
+            text-decoration: none;
         }
-
-        /* Featured Image Container */
-        .blog-card-image {
-            position: relative;
-            width: 100%;
-            height: 240px;
-            overflow: visible;
-            background-color: #f0f0f0;
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
         }
-
-        .blog-card-image-inner {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            border-radius: 2px 2px 0 0;
-        }
-
-        .blog-card-image-inner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .blog-card:hover .blog-card-image-inner img {
-            transform: scale(1.05);
-        }
-
-        /* Date Badge */
-        .blog-card-date-badge {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: white;
-            padding: 8px 16px;
-            border-radius: 2px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-        }
-
-        /* Category Badge */
-        .blog-card-category-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: black;
-            color: white;
-            padding: 6px 16px;
-            border-radius: 2px;
+        .blog-card-date {
+            font-family: "Plus Jakarta Sans", sans-serif;
             font-size: 0.75rem;
             font-weight: 600;
+            color: #9a9590;
+            letter-spacing: 0.04em;
+        }
+        .blog-card-category {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 10;
+            color: #DE3A3A;
+            background: rgba(222,58,58,0.08);
+            padding: 2px 10px;
+            border-radius: 2px;
         }
-
-        /* Author Avatar */
-        .blog-card-author {
-            position: absolute;
-            bottom: -30px;
-            left: 20px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 2px solid white;
-            background-color: #e0e0e0;
-            overflow: hidden;
-            z-index: 10;
-        }
-
-        .blog-card-author img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Card Body */
-        .blog-card-body {
-            padding: 48px 24px 32px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
         .blog-card-title {
-            font-size: 1.5rem !important;
-            font-weight: 500 !important;
-            line-height: 1.3 !important;
-            margin-bottom: 16px !important;
-            color: var(--text-dark) !important;
+            font-family: "Plus Jakarta Sans", sans-serif !important;
+            font-size: 1.15rem !important;
+            font-weight: 700 !important;
+            line-height: 1.35 !important;
+            color: #0e0f11 !important;
+            margin-bottom: 0.75rem !important;
         }
-
         .blog-card-excerpt {
-            font-size: 1rem !important;
-            line-height: 1.6 !important;
-            margin-bottom: 24px !important;
-            color: var(--text-dark) !important;
+            font-size: 0.92rem !important;
+            line-height: 1.65 !important;
+            color: #5c6370 !important;
             flex-grow: 1;
+            margin-bottom: 1.25rem !important;
         }
-
-        /* Read More Link */
         .blog-card-read-more {
-            color: #0066FF !important;
-            font-weight: 600 !important;
-            text-decoration: none !important;
-            font-size: 0.9rem !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            transition: color 0.2s ease;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: #DE3A3A;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: gap 0.15s ease;
+        }
+        .blog-card:hover .blog-card-read-more {
+            gap: 0.65rem;
         }
 
-        .blog-card-read-more:hover {
-            color: #0052CC;
-        }
-
-        /* Pagination Styles */
+        /* ─── Pagination ─── */
         .pagination-wrapper {
             display: flex;
             justify-content: center;
-            padding: 40px 0;
+            padding: 3rem 0 1rem;
         }
-
         .pagination {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             list-style: none;
             margin: 0;
             padding: 0;
         }
-
-        .pagination li {
-            display: inline-block;
-        }
-
+        .pagination li { display: inline-block; }
         .pagination a,
         .pagination span {
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 40px;
-            height: 40px;
-            padding: 0 12px;
+            min-width: 38px;
+            height: 38px;
+            padding: 0 10px;
             border-radius: 4px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            transition: all 0.15s ease;
         }
-
         .pagination a {
-            color: #0066FF;
-            background-color: transparent;
-            font-weight: 400 !important;
+            color: #5c6370;
+            background: transparent;
+            border: 1.5px solid #e8e5e0;
         }
-
         .pagination a:hover {
-            background-color: #f0f0f0;
+            border-color: #DE3A3A;
+            color: #DE3A3A;
         }
-
         .pagination .active span {
-            color: white;
-            background-color: #0066FF;
+            color: #ffffff;
+            background: #DE3A3A;
+            border: 1.5px solid #DE3A3A;
         }
-
         .pagination .disabled span {
             color: #ccc;
+            border: 1.5px solid #e8e5e0;
             cursor: not-allowed;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .blog-card-image {
-                height: 200px;
-            }
-
-            .blog-card-title {
-                font-size: 1.25rem;
-            }
-
-            .blog-card-body {
-                padding: 40px 20px 24px;
-            }
+            .blog-hero { padding: 4rem 0; }
+            .blog-hero h1 { font-size: 2.2rem !important; }
         }
     </style>
 </head>
@@ -244,67 +234,33 @@
 
     <main>
         <!-- HERO SECTION -->
-        <section class="py-5 text-center bg-light">
+        <section class="blog-hero">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <h1 class="hero-title">
-                            Insight That Drives <span class="hero-highlight">Impact.</span>
-                        </h1>
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <p class="lead mb-0">
-                                    Most consultants talk about tools, trends, or experiments.
-                                    We showcase real business problems, the solutions that handle them, and the
-                                    outcomes that followed.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="blog-hero-inner">
+                    <span class="blog-hero-eyebrow">BLOG</span>
+                    <h1>Insight that drives impact.</h1>
+                    <p>Real business problems, real solutions, real outcomes - not trends or experiments.</p>
                 </div>
             </div>
         </section>
 
-        <section class="py-5 bg-light">
+        <section class="py-5" style="background: #faf8f4;">
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     {% for post in paginator.posts %}
                     <div class="col">
-                        <a href="{{ post.url | relative_url }}" class="blog-card h-100" style="text-decoration: none;">
-                            <div class="blog-card-image">
-                                <div class="blog-card-image-inner">
-                                    {% if post.featured_image %}
-                                    <img src="{{ post.featured_image }}" alt="{{ post.title }}">
-                                    {% else %}
-                                    <img src="/images/default-post.jpg" alt="{{ post.title }}">
-                                    {% endif %}
-                                </div>
-                                
-                                <!-- Date Badge -->
-                                <div class="blog-card-date-badge">
-                                    {{ post.date | date: "%B %d, %Y" }}
-                                </div>
-                                
-                                <!-- Category Badge -->
+                        <a href="{{ post.url | relative_url }}" class="blog-card">
+                            <div class="blog-card-meta">
+                                <span class="blog-card-date">{{ post.date | date: "%b %d, %Y" }}</span>
                                 {% if post.categories and post.categories.size > 0 %}
-                                <div class="blog-card-category-badge">
-                                    {{ post.categories | first | upcase }}
-                                </div>
+                                <span class="blog-card-category">{{ post.categories | first }}</span>
                                 {% endif %}
-                                
-                                <!-- Author Avatar -->
-                                <div class="blog-card-author">
-                                    <img src="/images/author-avatar-jh.png" alt="{{ post.author }}">
-                                </div>
                             </div>
-                            
-                            <div class="blog-card-body">
-                                <h3 class="blog-card-title">{{ post.title }}</h3>
-                                {% if post.excerpt %}
-                                <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-                                {% endif %}
-                                <span class="blog-card-read-more">READ MORE »</span>
-                            </div>
+                            <h3 class="blog-card-title">{{ post.title }}</h3>
+                            {% if post.excerpt %}
+                            <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                            {% endif %}
+                            <span class="blog-card-read-more">Read more &rarr;</span>
                         </a>
                     </div>
                     {% endfor %}
