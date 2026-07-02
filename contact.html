@@ -30,6 +30,62 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/contact.css">
+
+    <style>
+        .page-hero {
+            background: #0e0f11;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+        .page-hero-inner {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #f07070;
+            margin-bottom: 1.75rem;
+        }
+        .page-hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 22px;
+            height: 1px;
+            background: currentColor;
+        }
+        .page-hero h1 {
+            font-family: "Plus Jakarta Sans", sans-serif !important;
+            font-size: 3.5rem !important;
+            font-weight: 800 !important;
+            letter-spacing: -0.04em !important;
+            line-height: 1.08 !important;
+            color: #ffffff !important;
+            margin-bottom: 1.25rem;
+        }
+        .page-hero p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.55);
+            max-width: 520px;
+            line-height: 1.7;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -39,17 +95,12 @@
 
     <main>
         <!-- HERO SECTION -->
-        <section class="py-5 text-center bg-light">
+        <section class="page-hero">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <h1 class="display-5 mb-4">
-                            Let's Identify Your Next Five<br><span class="hero-highlight">High-Impact</span>
-                            Opportunities.
-                        </h1>
-                        <p class="mb-4">We'll help you uncover the five most valuable initiatives to improve growth,
-                            efficiency, and leadership performance and create a roadmap for measurable impact.</p>
-                    </div>
+                <div class="page-hero-inner">
+                    <span class="page-hero-eyebrow">CONTACT</span>
+                    <h1>Let's start the conversation.</h1>
+                    <p>We take a limited number of engagements. Tell us about your business.</p>
                 </div>
             </div>
         </section>
@@ -57,10 +108,7 @@
         <!-- CONTACT FORM SECTION -->
         <section id="contact-form" class="py-5">
             <div class="container">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-5">
-                        <img src="images/meeting.webp" alt="Team collaboration meeting" class="img-fluid rounded">
-                    </div>
+                <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <h2 class="mb-4">We're Ready When You Are.</h2>
                         <p class="mb-4">
@@ -104,18 +152,15 @@
         </section>
 
         <!-- FINAL CTA SECTION -->
-        <section class="py-5"
-            style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/cta.png') center/cover no-repeat;">
-            <div class="container text-white">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <h2 class="mb-4">Let's Build What's Next.</h2>
-                        <p class="mb-4">
-                            We help founders and CEOs grow smarter, operate leaner, and lead stronger. Reach out today
-                            and take the first step toward your next breakthrough.
-                        </p>
-                    </div>
-                </div>
+        <section style="background: #faf8f4; padding: 5rem 0; border-top: 1px solid #e8e5e0; text-align: center;">
+            <div class="container">
+                <span style="display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #DE3A3A; margin-bottom: 1rem;">
+                    <span style="display: block; width: 20px; height: 1px; background: #DE3A3A;"></span>
+                    START THE CONVERSATION
+                </span>
+                <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; color: #0e0f11; margin-bottom: 1rem;">Let's build what's next.</h2>
+                <p style="color: #5c6370; font-size: 1rem; max-width: 460px; margin: 0 auto 2rem; line-height: 1.7;">We help founders and CEOs grow smarter, operate leaner, and lead stronger. Reach out today and take the first step toward your next breakthrough.</p>
+                <a href="#contact-form" class="btn-cta-primary btn">Get in touch</a>
             </div>
         </section>
     </main>

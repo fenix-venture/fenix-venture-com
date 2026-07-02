@@ -29,6 +29,62 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/results.css">
+
+    <style>
+        .page-hero {
+            background: #0e0f11;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+        .page-hero-inner {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #f07070;
+            margin-bottom: 1.75rem;
+        }
+        .page-hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 22px;
+            height: 1px;
+            background: currentColor;
+        }
+        .page-hero h1 {
+            font-family: "Plus Jakarta Sans", sans-serif !important;
+            font-size: 3.5rem !important;
+            font-weight: 800 !important;
+            letter-spacing: -0.04em !important;
+            line-height: 1.08 !important;
+            color: #ffffff !important;
+            margin-bottom: 1.25rem;
+        }
+        .page-hero p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.55);
+            max-width: 520px;
+            line-height: 1.7;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -38,22 +94,12 @@
 
     <main>
         <!-- HERO SECTION -->
-        <section class="py-5 text-center bg-light">
+        <section class="page-hero">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <h1 class="display-4 mb-4">
-                            <span class="hero-highlight">Results</span> That Endure.
-                        </h1>
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <p class="lead mb-4">
-                                    We measure success in outcomes, not activities. Our work helps businesses improve performance through clearer priorities, better execution, and decisions that hold up over time.
-                                </p>
-                                <a href="contact.html" class="btn btn-cta-primary px-5 py-3">Schedule Your Diagnostic</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="page-hero-inner">
+                    <span class="page-hero-eyebrow">RESULTS</span>
+                    <h1>Real results from real engagements.</h1>
+                    <p>We measure success by what changes in the business - not what we put in a deck.</p>
                 </div>
             </div>
         </section>
@@ -138,59 +184,77 @@
                 </div>
 
                 <!-- Case Study 1 -->
-                <div class="row align-items-center g-5 mb-5">
-                    <div class="col-lg-6">
-                        <p class="mb-2" style="font-weight: 700;">Case Study 1:</p>
-                        <h3 class="mb-4" style="color: #c27803;">SaaS Company - Revenue Expansion & Operational Efficiency</h3>
-                        <p class="mb-3"><span style="color: #016df0; font-weight: 700; display: inline-block; line-height: 1;">■</span> <strong>Challenge:</strong> A rapidly growing SaaS provider was struggling with margin erosion and inconsistent sales execution.</p>
-                        <p class="mb-3"><span style="color: #016df0; font-weight: 700; display: inline-block; line-height: 1;">■</span> <strong>Approach:</strong> Approach: Fenix Venture conducted a diagnostic to identify five high-impact initiatives, including pricing optimization, lead routing automation, and customer success restructuring.</p>
-                        <p class="fw-bold mb-2">Results:</p>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-1">• +172% recurring monthly revenue growth</li>
-                            <li class="mb-1">• +64% increase in project profitability</li>
-                            <li class="mb-1">• +38% improvement in renewal rate within 90 days</li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <img src="images/case-study-saas.webp" alt="Team reviewing SaaS metrics" class="img-fluid" style="height: 400px; object-fit: cover; width: 100%;">
+                <div class="mb-4" style="background: #0e0f11; border-radius: 6px; padding: 2.5rem; position: relative; overflow: hidden;">
+                    <div style="position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none;"></div>
+                    <div style="position: relative; z-index: 2;">
+                        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #f07070;">Case Study 1 - SaaS</span>
+                        <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 800; color: #ffffff; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">Revenue Expansion &amp; Operational Efficiency</h3>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;"><strong style="color: rgba(255,255,255,0.85);">Challenge:</strong> A rapidly growing SaaS provider was struggling with margin erosion and inconsistent sales execution.</p>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;"><strong style="color: rgba(255,255,255,0.85);">Approach:</strong> Fenix Venture conducted a diagnostic to identify five high-impact initiatives, including pricing optimization, lead routing automation, and customer success restructuring.</p>
+                        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                            <div style="background: rgba(222,58,58,0.12); border: 1px solid rgba(222,58,58,0.3); border-radius: 4px; padding: 1rem 1.25rem; min-width: 160px;">
+                                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 800; color: #f07070; letter-spacing: -0.04em; line-height: 1;">+172%</div>
+                                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.25rem;">recurring monthly revenue</div>
+                            </div>
+                            <div style="background: rgba(222,58,58,0.12); border: 1px solid rgba(222,58,58,0.3); border-radius: 4px; padding: 1rem 1.25rem; min-width: 160px;">
+                                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 800; color: #f07070; letter-spacing: -0.04em; line-height: 1;">+64%</div>
+                                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.25rem;">project profitability</div>
+                            </div>
+                            <div style="background: rgba(222,58,58,0.12); border: 1px solid rgba(222,58,58,0.3); border-radius: 4px; padding: 1rem 1.25rem; min-width: 160px;">
+                                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 800; color: #f07070; letter-spacing: -0.04em; line-height: 1;">+38%</div>
+                                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.25rem;">renewal rate in 90 days</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Case Study 2 -->
-                <div class="row align-items-center g-5 mb-5">
-                    <div class="col-lg-6">
-                        <img src="images/case-study-services.png" alt="Workflow optimization session" class="img-fluid" style="height: 400px; object-fit: cover; width: 100%;">
-                    </div>
-                    <div class="col-lg-6">
-                        <p class="mb-2" style="font-weight: 700;">Case Study 2:</p>
-                        <h3 class="mb-4" style="color: #c27803;">Professional Services Firm - Systematizing Growth</h3>
-                        <p class="mb-3"><span style="color: #016df0; font-weight: 700; display: inline-block; line-height: 1;">■</span> <strong>Challenge:</strong> A professional services firm was struggling to scale due to manual workflows and inconsistent client delivery processes.</p>
-                        <p class="mb-3"><span style="color: #016df0; font-weight: 700; display: inline-block; line-height: 1;">■</span> <strong>Approach:</strong> We streamlined project intake, automated proposal generation, and improved team accountability through fractional COO support.</p>
-                        <p class="fw-bold mb-2">Results:</p>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-1">• 50% faster delivery time</li>
-                            <li class="mb-1">• 32% reduction in administrative workload</li>
-                            <li class="mb-1">• 18% increase in EBITDA within 6 months</li>
-                        </ul>
+                <div class="mb-4" style="background: #0e0f11; border-radius: 6px; padding: 2.5rem; position: relative; overflow: hidden;">
+                    <div style="position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none;"></div>
+                    <div style="position: relative; z-index: 2;">
+                        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #f07070;">Case Study 2 - Professional Services</span>
+                        <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 800; color: #ffffff; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">Systematizing Growth</h3>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;"><strong style="color: rgba(255,255,255,0.85);">Challenge:</strong> A professional services firm was struggling to scale due to manual workflows and inconsistent client delivery processes.</p>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;"><strong style="color: rgba(255,255,255,0.85);">Approach:</strong> We streamlined project intake, automated proposal generation, and improved team accountability through fractional COO support.</p>
+                        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                            <div style="background: rgba(222,58,58,0.12); border: 1px solid rgba(222,58,58,0.3); border-radius: 4px; padding: 1rem 1.25rem; min-width: 160px;">
+                                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 800; color: #f07070; letter-spacing: -0.04em; line-height: 1;">50%</div>
+                                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.25rem;">faster delivery time</div>
+                            </div>
+                            <div style="background: rgba(222,58,58,0.12); border: 1px solid rgba(222,58,58,0.3); border-radius: 4px; padding: 1rem 1.25rem; min-width: 160px;">
+                                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 800; color: #f07070; letter-spacing: -0.04em; line-height: 1;">32%</div>
+                                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.25rem;">reduction in admin workload</div>
+                            </div>
+                            <div style="background: rgba(222,58,58,0.12); border: 1px solid rgba(222,58,58,0.3); border-radius: 4px; padding: 1rem 1.25rem; min-width: 160px;">
+                                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 800; color: #f07070; letter-spacing: -0.04em; line-height: 1;">+18%</div>
+                                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.25rem;">EBITDA in 6 months</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Case Study 3 -->
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-6">
-                        <p class="mb-2" style="font-weight: 700;">Case Study 3:</p>
-                        <h3 class="mb-4" style="color: #c27803;">Manufacturing Company - Leadership Alignment & Technology Integration</h3>
-                        <p class="mb-3"><span style="color: #016df0; font-weight: 700; display: inline-block; line-height: 1;">■</span> <strong>Challenge:</strong> A mid-size manufacturer was facing production inefficiencies and leadership silos that slowed decision-making.</p>
-                        <p class="mb-3"><span style="color: #016df0; font-weight: 700; display: inline-block; line-height: 1;">■</span> <strong>Approach:</strong> Fenix Venture combined operational process redesign with leadership alignment to improve decision-making and execution.</p>
-                        <p class="fw-bold mb-2">Results:</p>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-1">• 20% increase in production throughput</li>
-                            <li class="mb-1">• 25% improvement in on-time delivery</li>
-                            <li class="mb-1">• Unified leadership team with improved communication and accountability</li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <img src="images/case-study-manufacturing.png" alt="Manufacturing team collaboration" class="img-fluid" style="height: 400px; object-fit: cover; width: 100%;">
+                <div class="mb-4" style="background: #0e0f11; border-radius: 6px; padding: 2.5rem; position: relative; overflow: hidden;">
+                    <div style="position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none;"></div>
+                    <div style="position: relative; z-index: 2;">
+                        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #f07070;">Case Study 3 - Manufacturing</span>
+                        <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 800; color: #ffffff; margin: 1rem 0 0.75rem; letter-spacing: -0.02em;">Leadership Alignment &amp; Technology Integration</h3>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;"><strong style="color: rgba(255,255,255,0.85);">Challenge:</strong> A mid-size manufacturer was facing production inefficiencies and leadership silos that slowed decision-making.</p>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;"><strong style="color: rgba(255,255,255,0.85);">Approach:</strong> Fenix Venture combined operational process redesign with leadership alignment to improve decision-making and execution.</p>
+                        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                            <div style="background: rgba(222,58,58,0.12); border: 1px solid rgba(222,58,58,0.3); border-radius: 4px; padding: 1rem 1.25rem; min-width: 160px;">
+                                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 800; color: #f07070; letter-spacing: -0.04em; line-height: 1;">+20%</div>
+                                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.25rem;">production throughput</div>
+                            </div>
+                            <div style="background: rgba(222,58,58,0.12); border: 1px solid rgba(222,58,58,0.3); border-radius: 4px; padding: 1rem 1.25rem; min-width: 160px;">
+                                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 800; color: #f07070; letter-spacing: -0.04em; line-height: 1;">+25%</div>
+                                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.25rem;">on-time delivery</div>
+                            </div>
+                            <div style="background: rgba(222,58,58,0.12); border: 1px solid rgba(222,58,58,0.3); border-radius: 4px; padding: 1rem 1.25rem; min-width: 200px;">
+                                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 800; color: #f07070; letter-spacing: -0.02em; line-height: 1.2;">Unified team</div>
+                                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.25rem;">improved communication and accountability</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -237,24 +301,15 @@
         </section>
 
         <!-- FINAL CTA SECTION -->
-        <section class="py-5"
-            style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/cta.png') center/cover no-repeat;">
-            <div class="container text-white">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-6">
-                        <h3 class="mb-4">Your Results Start With Insight.</h3>
-                        <p class="mb-4">
-                            Let us help you identify the five most impactful opportunities in your business and define a
-                            clear path to execution.
-                        </p>
-                        <p class="mb-4">
-                            No long-term commitment. Just a path to measurable results.
-                        </p>
-                        <a href="contact.html" class="btn btn-cta-primary px-5 py-3">Contact Us</a>
-                    </div>
-                    <div class="col-lg-6">
-                    </div>
-                </div>
+        <section style="background: #faf8f4; padding: 5rem 0; border-top: 1px solid #e8e5e0; text-align: center;">
+            <div class="container">
+                <span style="display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #DE3A3A; margin-bottom: 1rem;">
+                    <span style="display: block; width: 20px; height: 1px; background: #DE3A3A;"></span>
+                    START THE CONVERSATION
+                </span>
+                <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; color: #0e0f11; margin-bottom: 1rem;">Your results start with insight.</h2>
+                <p style="color: #5c6370; font-size: 1rem; max-width: 460px; margin: 0 auto 2rem; line-height: 1.7;">Let us help you identify the five most impactful opportunities in your business and define a clear path to execution.</p>
+                <a href="/contact.html" class="btn-cta-primary btn">Get in touch</a>
             </div>
         </section>
     </main>
