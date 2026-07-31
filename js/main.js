@@ -1,29 +1,4 @@
 /**
- * Component Loader
- * Fetches HTML snippets and injects them into placeholders
- */
-async function loadComponent(elementId, filePath) {
-    try {
-        const response = await fetch(filePath);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-        const html = await response.text();
-        const container = document.getElementById(elementId);
-
-        if (container) {
-            container.innerHTML = html;
-
-            // Trigger specific logic after the header exists in the DOM
-            if (elementId === 'header-placeholder') {
-                setActiveNavLink();
-            }
-        }
-    } catch (error) {
-        console.error(`Error loading ${filePath}:`, error);
-    }
-}
-
-/**
  * Highlights active link and handles Bootstrap specific 'active' states
  */
 function setActiveNavLink() {
@@ -66,10 +41,14 @@ function setActiveNavLink() {
 
 // Initialize on load
 window.addEventListener('DOMContentLoaded', () => {
-    // Load header and footer components
-    loadComponent('header-placeholder', '/components/header.html');
-    loadComponent('footer-placeholder', '/components/footer.html');
-    
+    // The header and footer are rendered into every page by Jekyll at build
+    // time via {% include %}, so they are already in the DOM by the time this
+    // runs. They used to be fetched over the network after load, which meant
+    // the nav did not exist in the served HTML at all. Fine for browsers, but
+    // crawlers that do not execute JavaScript saw a site with no internal
+    // links, and most AI crawlers do not execute JavaScript.
+    setActiveNavLink();
+
     // Initialize pain points carousel if it exists on the page
     initPainPointsCarousel();
 });
